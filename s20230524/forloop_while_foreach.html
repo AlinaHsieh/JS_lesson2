@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .box {
+            width: 30%;
+            height: 300px;
+            background-color: rgb(221, 140, 223);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <script>
+         //foreach
+         console.log('foreach');
+        let myArr2 = ['amy','bob','cat'];
+        myArr2.forEach(function(value,key){
+            console.log('value',value);
+            console.log('key',key);
+
+        })
+
+        document.write(`<br>`);
+        /////////////////////////////////////////////////////////////////////////////////////
+
+        //綁定 class ->querySelectorAll -> array.foreach(function(value,key))
+        const box = document.querySelectorAll('.box');//綁定class="box"(選擇全部的class='box')
+        //cibst box = document.querySelector('.box');
+        console.log(box);
+        console.log('box[0]',box[0]);
+        console.log('box[1]',box[1]);
+        console.log('box[2]',box[2]);
+
+        box.forEach(function(value,key){
+            //.class nodelist
+            console.log('value',value);
+            console.log('key',key);
+            value.style.backgroundColor='lightblue';
+            value.addEventListener('click',function(){
+                console.log(`hello key ${key}`);
+            })
+        })
+        /////////////////////////////////////////////////////////////////////////////////////
+        //運算式
+        let x = 2;
+        function cal() {
+            let x = 5, y = 1;
+            console.log(x + y);
+        }
+        cal();
+        console.log(x);
+        /////////////////////////////////////////////////////////////////////////////////////
+        
+        //switch case
+        let level = 1;
+        switch (level) {
+            case 1:
+                console.log('case 一獎');
+            // break; 
+            //如果沒有break,會連case 2一起吃到
+            case 2:
+                console.log('case2 二獎');
+                break;
+            case 3:
+                console.log('case3 三獎');
+                break;
+            case 4:
+            case 5:
+            case 6:
+                console.log('普獎');
+                break;
+            default:
+                break;
+
+        }
+        /////////////////////////////////////////////////////////////////////////////////////
+
+        document.write(`<br>`)
+        document.write(`JS for迴圈99乘法表： &nbsp;`)
+        document.write(`<br>`)
+
+        //For迴圈99乘法表
+        for (let i = 1; i <= 9; i++) {
+            for (let j = 1; j <= 9; j++) {
+
+                document.write(`${i}*${j}=${i * j}&nbsp;&nbsp;&nbsp;`);
+            }
+            document.write(`<br>`);
+        }
+        document.write(`<br>`)
+        document.write(`JS for迴圈99乘法表(數字轉換成字串)： &nbsp;`)
+        document.write(`<br>`)
+        //For迴圈99乘法表->數字轉換成字串
+        for (let i = 1; i <= 9; i++) {
+            for (let j = 1; j <= 9; j++) {
+                //toString將原本的數字轉換成字串後，再用padStart(位數,補0)
+                //padStart給定用於填充的字串，以重複的方式，插入到目標字串的起頭(左側)，直到目標字串到達指定長度。
+                let iText = i.toString().padStart(2,'0');
+                let jText = j.toString().padStart(2,'0');
+                let ijText = (i * j).toString().padStart(2,'0');
+                document.write(`${iText}*${jText}=${ijText}&nbsp;&nbsp;&nbsp;`);
+            }
+            document.write(`<br>`);
+        }
+        /////////////////////////////////////////////////////////////////////////////////////
+        document.write(`<br>`)
+        document.write(`JS while迴圈： &nbsp;`)
+
+        //while
+        let j = 1;
+        while(j<=10){
+            document.write(`${j}`);
+            j++;
+        }
+        document.write(`<br>`)
+        document.write(`JS do while迴圈： &nbsp;`)
+        document.write(`<br>`)
+
+        //do while
+        let k = 1;
+        do{
+            document.write(`${k}<br>`);
+            k++;
+        }while (k <= 10);
+
+        // JS Array
+        let myArr = ['amy','bob','cat'];
+        // for in array/ object
+        // for(自訂變數 key in Array)
+        for(const key in myArr){
+            console.log(myArr[key]);
+        }
+        
+       
+
+
+    </script>
+</body>
+
+</html>
