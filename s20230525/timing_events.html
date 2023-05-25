@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- setTimeout -->
+    <!-- 過一段時間做...動作 -->
+    <button type="button" id="myBtn">myBtn</button>
+    <p id="result">原本的文字</p>
+    <br>
+    <button type="button" id="myBtn2">myBtn2</button>
+    <p id="result2">文字1</p>
+    <br>
+    <button type="button" id="myBtn3">myBtn3</button>
+    <p id="result3">計秒</p>
+    <br>
+    <button type="button" id="myBtn4">myBtn4</button>
+    <p id="result4">10秒倒數</p>
+    <br>
+    <button type="button" id="myBtn5">myBtn4</button>
+    <p id="result5">數10秒後停止</p>
+    <br>
+    <button type="button" id="startBtn">Start</button>
+    <button type="button" id="stopBtn">stop</button>
+    <p id="timeStartStop"></p>
+    <p id="info">按Start開始</p>
+
+    <script>
+        // 1.function 放外面
+        function myBtn2Fun(){
+            result2.innerText='文字2';
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        
+        //綁定
+        const myBtn = document.getElementById("myBtn");
+        const result = document.getElementById("result");
+        const myBtn2 = document.getElementById("myBtn2") ;
+        const result2 = document.getElementById("result2");
+        const myBtn3 = document.getElementById("myBtn3") ;
+        const result3 = document.getElementById("result3");
+        const myBtn4 = document.getElementById("myBtn4") ;
+        const result4 = document.getElementById("result4");
+        const myBtn5 = document.getElementById("myBtn5") ;
+        const result5 = document.getElementById("result5");
+        const startBtn = document.getElementById("startBtn") ;
+        const stopBtn = document.getElementById("stopBtn");
+        const timeStartStop = document.getElementById("timeStartStop");
+        let info = document.getElementById("info");
+        let myInterval;
+        let isStartFlag = false;
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+        //按下 Start 跟 Stop
+        let startTime = 0 //記得初始化!
+        //function->start()這個function，因牽涉到變數生命週期，因此拉出來。
+        function start(){
+            if (isStartFlag ==true){ //設一個輔助變數把關；如果沒有設定的話，會造成重複點選start，秒數計算會變快。
+                return false   //如果已經按下start鍵，則狀態為false，return會讓function跳脫，不執行後面程式碼。
+            }
+            myInterval = setInterval(function(){
+                startTime = startTime + 1;
+                timeStartStop.innerText = startTime;
+            },1000);
+            isStartFlag = true;
+        }
+        //設定startBtn
+        startBtn.addEventListener('click',function(){
+            start();
+            info.innerText ="";
+        });
+        //設定stopBtn
+        stopBtn.addEventListener('click',function(){
+            console.log("stopBtn OK")
+            clearInterval(myInterval)
+            isStartFlag = false; //按下stop鑑後，記得要再加設輔助變數回復原本狀態false。
+        })
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+        // 2.原本的文字按click後改成另一段文字，過3秒後自動再換成另一段。function() 在裡面
+        myBtn.addEventListener('click', function(){
+            console.log('myBtn OK');
+            result.innerText= '點一下完成改變文字';
+            // 過幾秒後會...setTimeout(function,秒數)
+            // 1000 代表1秒
+            setTimeout(function(){
+                //setTimeout(function,時間)
+                //alert('hello');
+                result.innerText =  'setTimeout ok change text'
+            }, 3000) //按下button後過3秒變成'setTimeout ok change text'的文字
+        })
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+        myBtn2.addEventListener('click',myBtn2Fun)
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+        //計秒數
+        let time=0 //記得初始化!
+        myBtn3.addEventListener('click',function(){
+            //倒數 :setInterval(function,時間);
+        let myTimer = setInterval(function(){
+                console.log('hello setInterval');
+                time = time + 1;
+                result3.innerText = time;
+                if(time>=5){    //設條件:如果time大於五秒
+                    clearInterval(myTimer) //就會停止
+                }
+            },1000)   // 1000 代表1秒,以1秒為單位
+        })
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+        //倒數幾秒後停止
+        let time4 = 10 //記得初始化!
+        myBtn4.addEventListener('click',function(){
+            let myTime = setInterval(function(){ 
+                console.log('hello setIinterval');
+                time4 = time4-1
+                if (time4 <= 0){
+                    clearInterval(myTime)
+                }  
+                result4.innerText = time4;
+            },1000) // 1000 代表1秒,以1秒為單位
+        })
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+        // 數幾秒後停止
+        let time5 = 0 //記得初始化!
+        myBtn5.addEventListener('click',function(){
+            let timeStop = setInterval(function(){
+                console.log('hello setIinterval');
+                time5 = time5 + 1;
+                result5.innerText = time5;
+                if(time5>=10){
+                    clearInterval(timeStop)
+                }
+            },1000)  // 1000 代表1秒,以1秒為單位
+        })
+     
+
+
+
+
+    </script>
+
+</body>
+</html>
