@@ -27,14 +27,6 @@
         <div class="box"></div>
     </div>
     <script>
-         //foreach
-         console.log('foreach');
-        let myArr2 = ['amy','bob','cat'];
-        myArr2.forEach(function(value,key){
-            console.log('value',value);
-            console.log('key',key);
-
-        })
 
         document.write(`<br>`);
         /////////////////////////////////////////////////////////////////////////////////////
@@ -43,16 +35,16 @@
         const box = document.querySelectorAll('.box');//綁定class="box"(選擇全部的class='box')
         //cibst box = document.querySelector('.box');
         console.log(box);
-        console.log('box[0]',box[0]);
-        console.log('box[1]',box[1]);
-        console.log('box[2]',box[2]);
+        console.log('box[0]', box[0]);
+        console.log('box[1]', box[1]);
+        console.log('box[2]', box[2]);
 
-        box.forEach(function(value,key){
+        box.forEach(function (value, key) {
             //.class nodelist
-            console.log('value',value);
-            console.log('key',key);
-            value.style.backgroundColor='lightblue';
-            value.addEventListener('click',function(){
+            console.log('value', value);
+            console.log('key', key);
+            value.style.backgroundColor = 'lightblue';
+            value.addEventListener('click', function () {
                 console.log(`hello key ${key}`);
             })
         })
@@ -66,7 +58,7 @@
         cal();
         console.log(x);
         /////////////////////////////////////////////////////////////////////////////////////
-        
+
         //switch case
         let level = 1;
         switch (level) {
@@ -111,20 +103,42 @@
             for (let j = 1; j <= 9; j++) {
                 //toString將原本的數字轉換成字串後，再用padStart(位數,補0)
                 //padStart給定用於填充的字串，以重複的方式，插入到目標字串的起頭(左側)，直到目標字串到達指定長度。
-                let iText = i.toString().padStart(2,'0');
-                let jText = j.toString().padStart(2,'0');
-                let ijText = (i * j).toString().padStart(2,'0');
+                let iText = i.toString().padStart(2, '0');
+                let jText = j.toString().padStart(2, '0');
+                let ijText = (i * j).toString().padStart(2, '0');
                 document.write(`${iText}*${jText}=${ijText}&nbsp;&nbsp;&nbsp;`);
             }
             document.write(`<br>`);
         }
+        document.write(`<br>`);
+        document.write(`JS break： &nbsp;`)
+        document.write(`<br>`)
+        // break中斷
+        for (let c = 0; c <= 10; c++) {
+            if (c >= 5) {
+                break;
+            }
+            document.write(`${c}<br>`)
+        }
+        document.write(`<br>`);
+        document.write(`JS continue： &nbsp;`)
+        document.write(`<br>`)
+
+        // continue跳掉
+        for (let d = 1; d <= 10; d++) {
+            if (d <= 4) {
+                continue;
+            }
+            document.write(`${d}<br>`);
+        }
+
         /////////////////////////////////////////////////////////////////////////////////////
         document.write(`<br>`)
         document.write(`JS while迴圈： &nbsp;`)
 
         //while
         let j = 1;
-        while(j<=10){
+        while (j <= 10) {
             document.write(`${j}`);
             j++;
         }
@@ -134,21 +148,105 @@
 
         //do while
         let k = 1;
-        do{
+        do {
             document.write(`${k}<br>`);
             k++;
-        }while (k <= 10);
+        } while (k <= 10);
+        /////////////////////////////////////////////////////////////////////////////////////
+        document.write(`<br>`)
+        document.write(`JS Array： &nbsp;`)
+        document.write(`<br>`)
 
         // JS Array
-        let myArr = ['amy','bob','cat'];
+        let myArr = ['amy', 'bob', 'cat'];
         // for in array/ object
         // for(自訂變數 key in Array)
-        for(const key in myArr){
+        for (const key in myArr) {
             console.log(myArr[key]);
         }
-        
-       
 
+        // foreach
+        console.log('foreach');
+        let myArr2 = ['amy', 'bob', 'cat'];
+        myArr2.forEach(function (value, key) {
+            console.log('value', value);
+            console.log('key', key);
+
+        })
+        // 假設飲料店本日訂單
+        let myArray = [50, 100, 300, 20, 300, 55, 100, 200, 33];
+        // 練習1. 本日營業額
+        let total = 0;
+        myArray.forEach(value => {
+            total += value;
+        })
+        document.write(`總共是 ${total}`)
+        document.write(`<br>`)
+
+        // 練習2. >=100的訂單總和是多少
+        let sum100 = 0;
+        myArray.forEach(function (value) {
+            if(value >= 100) { //也可以寫成 if( value < 100){ return false;}
+                sum100 = sum100 + value;
+            }
+        })
+        document.write(`大於等於100的金額總共是： ${sum100}`)
+        document.write(`<br>`)
+
+        //也可以用for迴圈
+        let sum0 = 0;
+        for (let r = 0; r < myArray.lenth; r++) {
+            if (myArray[i] >= 100) {
+                sum0 = sum0 + myArray[i]
+            }
+        }
+        document.write(`大於等於100的金額總共是： ${sum100}`)
+        document.write(`<br>`)
+
+        // 練習3. <100的訂單總和是多少
+        let sum = 0;
+        myArray.forEach(function (value) { 
+            if (value < 100) {  //也可以寫成 if(value>=100){ return false;}
+                sum = value + sum
+            }
+        })
+        document.write(`小於100的金額總共是：${sum}`);
+        document.write(`<br>`)
+
+        //用迴圈寫
+        let sum1 = 0
+        for (let a = 0; a <= myArray.lenth; a++) {
+            if (a < 100) {
+                sum1 = a + sum1
+            }
+        }
+        document.write(`小於100的金額總共是：${sum}`);
+        document.write(`<br>`)
+
+        // 練習4.
+        let flag = false;
+        let key = 0;
+        for (let z = 0; z < myArray.length ; z++) {
+            if (myArray[z] >= 300 && flag == false) {
+                key = z;
+                flag = true;
+
+            }
+        }
+        document.write(`第一筆300的key是：${key}`);
+        document.write(`<br>`)
+
+        //用陣列寫
+        let getIndexArr=[]; //設一個陣列
+        myArray.forEach(function(value,key){ 
+            if(value==300){ //如果value是300的話，
+                getIndexArr.push(key); //就把300的key值存到getIndexArr陣列中(變成一個新的陣列)
+            }
+        })
+        console.log('getIndexArr',getIndexArr);
+        console.log('getIndexArr[0]',getIndexArr[0]);
+        document.write(`第一筆300的key是：${getIndexArr[0]}`); //第一筆的300就是陣列中key是0的位置
+        
 
     </script>
 </body>
