@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let data2 = [30, 40, 100, 200, 300];
+        // 為了成功累加，宣告變數 total 要放在外層
+        let total2 = 0;
+
+        data2.forEach(function (item) {
+            total2 += item;
+            console.log(total2); // 30 70 170 370 670
+        })
+
+        console.log(total2); // 670
+        document.write (total2)
+
+        document.write("<br>")
+
+        let data = [30, 40, 100, 200, 300];
+        let total = 0;
+        data.forEach(function (item) {
+            total += item;
+            console.log(total);
+        })
+        console.log(total);
+        document.write(total)
+
+    </script>
+</body>
+
+</html>
