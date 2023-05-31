@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,tr,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h2>TR elements define table rows</h2>
+    <table style="width:100%" id="myTable">
+        <!-- 用JS把值帶入table中 -->
+        <tr>
+            <th>座號</th>
+            <th>姓名</th>
+        </tr>
+        <tr>
+            <td id="td11"></td>
+            <td id="td12"></td>
+        </tr>
+        <tr>
+            <td id="td21"></td>
+            <td id="td22"></td>
+        </tr>
+        <tr>
+            <td id="td31"></td>
+            <td id="td32"></td>
+        </tr>
+    </table>
+
+    <script>
+        const td11=document.getElementById('td11');
+        const td12=document.getElementById('td12');
+        const td21=document.getElementById('td21');
+        const td22=document.getElementById('td22');
+        const td31=document.getElementById('td31');
+        const td32=document.getElementById('td32');
+        console.log('td11',td11)
+        const myTable=document.getElementById('myTable')
+    
+
+
+        // 在php,指定key value
+        // s1 => amy
+        // s2 => bob
+        // s3 => cat
+
+        // 在js用object
+        let myObj = {
+            's1' : 'amy',
+            's2' : 'bob',
+            's3' : 'cat'
+        }
+        console.log('myObj',myObj);
+        console.log('myObj["s1"]',myObj["s1"]);
+        td11.innerText='1';
+        td12.innerText=myObj['s1'];
+        td21.innerText='2';
+        td22.innerText=myObj['s2'];
+        td31.innerText='3';
+        td32.innerText=myObj['s3'];
+
+     
+
+    </script>
+</body>
+</html>

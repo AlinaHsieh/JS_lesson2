@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>TR elements define table rows</h2>
+    <table style="width:100%" id="myTable">
+
+    </table>
+
+    <script>
+        // 綁定
+        const myTable = document.getElementById('myTable');
+
+        // php
+        // s1 => amy
+        // s2 => bob
+        // s3 => cat
+
+        // js how ?
+        // object
+        let myObj = {
+            's1': 'amy',
+            's2': 'bob',
+            's3': 'cat',
+            's4': 'dog',
+            's5': 'egg',
+        }
+
+        let myArr = [
+            {
+                'name' : 'amy',
+                'mobile' : '0911-111-111'
+            },
+            {
+                'name' : 'bob',
+                'mobile' : '0922-222-222'
+            }
+        ];
+
+        console.log('myArr', myArr);
+        console.log('myArr', myArr[0]);
+        console.log('myArr', myArr[1]);
+
+        myArr.forEach(value => {
+            console.log('myArr.foreach');
+            console.log('value',value);
+            console.log('value.name',value.name);
+            console.log('value.mobile',value.mobile);
+        });
+
+        console.log('myObj', myObj);
+        console.log('myObj["s1"]', myObj['s1']);
+        console.log('myObj.s1', myObj.s1);
+
+
+        // td11.innerText = 's1';
+        // td12.innerText = myObj.s1;
+        // td21.innerText = 's2';
+        // td22.innerText = myObj['s2'];
+        // td31.innerText = 's3';
+        // td32.innerText = myObj.s3;
+
+        let myString = `
+        <tr>
+            <th>座號</th>
+            <th>姓名</th>
+        </tr>        
+        `;
+
+        // foreach
+        // 下面三段code
+        // myObj.forEach(element => {
+        //     console.log('element', element);
+        // });
+
+        // object 不能用 array.foreach
+        // 用for in 抓object key / for of 抓object value        
+        for (const key in myObj) {
+            console.log(`${key} => ${myObj[key]}`);
+            myString += `
+            <tr>
+                <td>${key}</td>
+                <td>${myObj[key]}</td>
+             </tr>  
+            `;
+        }
+        
+        myTable.innerHTML = myString;
+        
+
+        // foreach js => array method
+        // object 不能用
+
+        // myString += `
+        // <tr>
+        //     <td id="td11">data1</td>
+        //     <td id="td12">data2</td>
+        // </tr>        
+        // `;
+
+        // myString += `
+        // <tr>
+        //     <td id="td21">data2</td>
+        //     <td id="td22">data3</td>
+        // </tr>
+        // `;
+
+        // myString += `        
+        // <tr>
+        //     <td id="td31">data4</td>
+        //     <td id="td32">data555</td>
+        // </tr>
+        // `;
+
+        
+        /////////////////////////////////
+ 
+        let myArr2=[1,2,3,4,5,6,7,8,9,10];
+        let sum=0;
+        myArr2.forEach(function(value,key){
+            // console.log(`${key}=>${value}`);
+            sum = sum + value;
+        })
+        console.log('sum',sum);
+
+        /////////////////////////////////
+
+        //  練習二 myArr2陣列的每個值*2存到新陣列
+        let newArr2 = [];
+        let sum2=0
+        myArr2.map(function(value,key){
+            newArr2.push(value*2)
+        })
+        console.log('newArr2',newArr2);
+
+        /////////////////////////////////
+        //  練習二 myArr * 2 (if before value > 5  => *3)
+        let myArr22 = myArr2.map(function(value,key){
+                if(value>5){
+                    return value*3;
+                }else{
+                    return value*2;
+                }
+        });
+        console.log('myArr22',myArr22)
+
+        /////////////////////////////////
+        //練習:發獎金，四萬(含)以下，底薪*2；四萬以上發1萬
+        let myCompany = [6,4,2,1,5,10,7,3,6];
+        let myCompanyR= myCompany.map(function(value,key){
+            if(value<=4){
+                return value*2;
+            }else{
+                return 1;
+            }
+        })
+        console.log('myCompanyR',myCompanyR)
+
+        // 篩選成年人
+        let ageArr = [20, 15, 30, 55, 10, 5, 25];
+        let newArr = [];
+        ageArr.forEach(function (value, key) {
+            if (value >= 18) {
+                newArr.push(value);
+            }
+        });
+        console.log('newArr', newArr);
+
+        // map 回傳的陣列值 回來也是陣列
+        // return value
+
+        // filer
+        // filter return condition條件
+        // 如果條件達到 value丟過去
+        let filterArr = ageArr.filter(function (value, key) {
+            return value >= 18;
+        });
+        console.log('fitlerArr', filterArr);
+
+        // indexOf
+        // 抓到array key by value
+        let studentArr = ['amy', 'bob', 'cat', 'dog', 'egg'];
+        studentArr.forEach(function (value, key) {
+            if (value == 'dog') {
+                console.log(`key == ${key}`);
+                console.log(`value == ${value}`);
+            }
+        });
+        console.log('studentArr egg =>', studentArr.indexOf('egg'));
+
+        //sum
+        let numArr=[1,2,3,4,5,6,7,8,9,10];
+        numArr.forEach(function(value,key){
+            sum+= value;
+        })
+        console.log('sum',sum);
+
+        // reduce
+        // total 到下一回合的累加
+        // currentValue我現在的value
+        // reduce(function,初始total)
+        // return是一個value，不是array
+        let getSum = numArr.reduce(function(total,value,key){
+            console.log('total',total);
+            console.log('value',value);
+            return total + value;
+        },500 ); //設定起始值
+
+
+    </script>
+</body>
+
+</html>
