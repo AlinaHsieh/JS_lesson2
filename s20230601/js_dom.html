@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>   
+    <ul id="myUl">
+        <li>amy</li>
+        <li>bob</li>
+        <li>cat</li>
+    </ul>
+    <button type="button" id="myBtn">myBtn</button>
+    <script>
+        const myUl = document.getElementById('myUl');
+        const myBtn = document.getElementById('myBtn');
+
+        myBtn.addEventListener('click', function () {
+            // 1.建立 element <li></li>
+            let li = document.createElement('li');
+            // 2.建立 textNode text
+            let textNode = document.createTextNode('test');
+            // 3.element 放入 textNode <li>text</li>
+            li.appendChild(textNode);
+
+            // 4. ul 放入 上面li
+            myUl.appendChild(li);
+            console.log('li', li);
+            console.log('myUl', myUl);
+        })
+    </script>
+</body>
+
+</html>

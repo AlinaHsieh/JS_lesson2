@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+        <button type="button" id="myBtn">Button</button>
+        
+    <script>
+        //有名字的function
+        function good(){
+            console.log('good')
+        }
+        const myBtn = document.getElementById('myBtn');
+        const box=document.getElementById('box');
+        
+        //原本的function(沒名字)
+        myBtn.addEventListener('click',function(){
+            console.log('hello')
+            console.log('this',this)
+        })
+        //簡化成箭頭函式 (一個值可以不用括號)(箭頭函式不能用this，會指向window)
+        myBtn.addEventListener('click', value =>{
+            console.log('hi hi hi')
+        })
+        //箭頭函式一個值可以只寫成 ()=>
+        myBtn.addEventListener('click', ()=>{
+            console.log('ya ya ya')
+        })
+
+        //原本完整的function寫法
+        let myArr=[1,2,3,4,5,6,7,8,9,10];
+        let newArr = [];
+        let sum=0
+        myArr.map(function(value,key){
+            newArr.push(value*2)
+        })
+        console.log('newArr',newArr);
+        
+        //簡化後
+        let newArr1 = [];
+        let sum1=0
+        myArr.map((value)=>(newArr1.push(value*2)))
+        console.log('newArr1',newArr1);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    th {
+        width: 25%;
+    }
+
+    button {
+        width: 80%;
+    }
+</style>
+
+<body>
+
+    <h2>學生成績計算</h2>
+
+    <table style="width:100%">
+        <tr>
+            <th>姓名</th>
+            <th>國文</th>
+            <th>英文</th>
+            <th>數學</th>
+        </tr>
+        <tr>
+            <td id="myName">test</td>
+            <td id="">
+                <input type="text" id="chinese" value="81">
+            </td>
+            <td id="">
+                <input type="text" id="english" value="82">
+            </td>
+            <td id="">
+                <input type="text" id="math" value="83">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <button type="button" id="myBtn">myBtn</button>
+            </td>
+        </tr>
+
+    </table>
+
+    <p id="result"></p>
+
+    <script>
+        const myName = document.getElementById('myName');
+        const chinese = document.getElementById('chinese');
+        const english = document.getElementById('english');
+        const math = document.getElementById('math');
+        const myBtn = document.getElementById('myBtn');
+        const result = document.getElementById('result');
+
+        let data = {
+            name: 'amy',
+            chinese: '90',
+            english: '91',
+            math: '92',
+            sum: function () {
+                let chineseVaule = chinese.value;
+                let englishVaule = english.value;
+                let mathVaule = math.value;
+
+                this.chinese = chineseVaule;
+                this.english = englishVaule;
+                this.math = mathVaule;
+                
+
+                let sum = Number(chineseVaule) + Number(englishVaule) + Number(mathVaule);
+
+                return sum;
+                // console.log('sum',sum);
+                // console.log('chineseVaule',chineseVaule);
+                // console.log('englishVaule',englishVaule);
+                // console.log('mathVaule',mathVaule);
+            },
+            avg: function () {
+                let sum = this.sum();
+                let avg = Math.round(sum / 3 * 100) / 100;
+                return avg;
+            }
+        }
+        // console.log('data', data);
+
+        // init
+        myName.innerText = data.name;
+        chinese.value = data.chinese;
+        english.value = data.english;
+        math.value = data.math;
+        
+        myBtn.addEventListener('click', function () {
+            let sum = data.sum();
+            let avg = data.avg();
+            console.log('result sum', sum);
+            console.log('result avg', avg);
+
+            console.log('myBtn this', this);
+
+            result.innerText = `
+                員工 : ${data.name}
+                國文 : ${data.chinese}
+                英文 : ${data.english}
+                數學 : ${data.math}
+                總分 : ${sum}
+                平均 : ${avg}
+            `;
+
+        })
+
+    </script>
+
+</body>
+
+</html>

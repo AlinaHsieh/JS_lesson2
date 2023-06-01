@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>電話</th>
+            <th>日薪</th>
+            <th>工作天數</th>
+        </tr>
+        <tr>
+            <td id="name">test</td>
+            <td id="phone">0955</td>
+            <td id="money">2000</td>
+            <td id="days">20</td>
+        </tr>
+    </table>
+    
+    <button type="button" id="myBtn">結算</button>
+    <p id="result">員工薪資為：</p>
+
+    <script>
+        const name=document.getElementById('name');
+        const phone=document.getElementById('phone');
+        const money=document.getElementById('money');
+        const days=document.getElementById('days');
+        const myBtn = document.getElementById('myBtn');
+
+        data= {
+            name : '王小美',
+            phone : '0938-333-555',
+            money : 2000,
+            days : 20,
+            sum : function(){
+                return this.money * this.days
+            }
+
+        }
+        name.innerText=data.name;
+        phone.innerText=data.phone;
+        money.innerText=data.money;
+        days.innerText=data.days;
+
+
+        myBtn.addEventListener('click',function(){
+            let sum = data.sum()
+            result.innerText="總共" + sum;
+        })
+
+        
+
+    </script>
+</body>
+</html>
