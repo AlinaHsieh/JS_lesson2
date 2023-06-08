@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Set Item
+        localStorage.setItem("lastname", ["amy", 'bob']);
+
+        // Retrieve
+        let getValue = localStorage.getItem("lastname");
+        console.log('getValue', getValue);
+        console.log('getValue typeof', typeof (getValue));
+        
+        const myArray = getValue.split(",");
+        console.log('myArray',myArray);
+        console.log('myArray typeof', typeof (myArray));
+        console.log('myArray isArray', Array.isArray(myArray));
+    </script>
+</body>
+
+</html>

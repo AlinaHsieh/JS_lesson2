@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+
+        .box-hidden {
+            display: none;
+        }
+
+        .box-show {
+            display: block;
+        }
+
+        /* .main{
+            background-color: red;
+        } */
+    </style>
+</head>
+
+<body>
+    <button type="button" id="myBtn">myBtn</button>
+    <div class="box box-hidden" id="box" data-hidden="0">
+    <input type="hidden" name="" data-price="" id="myHidden">
+    
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- <script>
+        $(document).ready(function () {
+            $("#myBtn").click(function () {
+                $("#box").toggleClass("main");
+            });
+        });
+    </script> -->
+
+    <script>
+        const myBtn = document.getElementById('myBtn');
+        const box = document.getElementById('box');
+
+        myBtn.addEventListener('click', function () {
+            let dataHiddenVaule = box.getAttribute('data-hidden');
+            if (dataHiddenVaule > 0) {
+                box.setAttribute('class', 'box box-hidden');
+                box.setAttribute('data-hidden', '0');
+            } else {
+                box.setAttribute('class', 'box box-show');
+                box.setAttribute('data-hidden', '1');
+            }
+        });
+
+    </script>
+</body>
+
+</html>
