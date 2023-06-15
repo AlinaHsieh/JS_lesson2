@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <img src="https://picsum.photos/id/42/1920/300" alt="" id="myImg">
+
+        </div>
+        <button type="button" id="leftBtn">leftBtn</button>
+        <button type="button" id="rightBtn">rightBtn</button>
+
+
+        <script>
+            const myImg = document.getElementById('myImg');
+            const leftBtn = document.getElementById('leftBtn');
+            const rightBtn = document.getElementById('rightBtn');
+
+            const imgArr = [42,57,65];
+            
+            let imgIndex=0;
+
+            leftBtn.addEventListener('click',function(){
+                
+                if(imgIndex <= 0){
+                    imgIndex =2;
+                }else{
+                    imgIndex-=1;
+                }console.log(imgIndex);
+                let textImg= `https://picsum.photos/id/${imgArr[imgIndex-1]}/1920/300`
+
+                myImg.setAttribute('src',textImg)
+            });
+
+            rightBtn.addEventListener('click',function(){
+                console.log('rightBtn ok');
+                if(imgIndex > 1){
+                    imgIndex = 0;
+                }else{
+                    imgIndex += 1;
+                }
+
+                let textImg= `https://picsum.photos/id/${imgArr[imgIndex]}/1920/300`
+
+                myImg.setAttribute('src',textImg)
+            })
+
+
+        </script>
+    </div>
+</body>
+</html>
