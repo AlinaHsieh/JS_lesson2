@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+
+        }
+
+        .blue {
+
+            background-color: lightblue;
+        }
+
+        .red {
+
+            background-color: rgb(148, 13, 63);
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" id="myBtn" data-box="#myBox">myBtn</button>
+
+    <!-- #myBox為目標ID -->
+    <br>
+    <hr>
+    <br>
+    <div class="box blue" id="myBox">
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+         
+        $(document).ready(function () {
+            const myBtn = $('#myBtn');
+            const myBox = $('#myBox');
+            console.log('myBtn',myBtn);
+            console.log('myBtn',myBox);
+            
+            myBtn.click(function(e){
+                // e.preventDefault();
+                console.log('myBtn ok');
+                if(myBox.hasClass('blue')){
+                    myBox.attr('class','box red');
+                }else{
+                    myBox.attr('class','box blue');
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

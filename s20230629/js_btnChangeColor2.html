@@ -25,7 +25,8 @@
                 id="btn1" 
                 class="all-btn btn btn-primary" 
                 data-go="#box1" 
-                data-color="bg-primary">blue</button>
+                data-color="bg-primary"
+                data-num="10">blue</button>
             </div>
 
             <div class="col-4 text-center">
@@ -33,7 +34,9 @@
                 id="btn2" 
                 class="all-btn btn btn-success" 
                 data-go="#box2" 
-                data-color="bg-success">green</button>
+                data-color="bg-success"
+                data-num="5">green
+                </button>
             </div>
 
             <div class="col-4 text-center">
@@ -41,7 +44,9 @@
                 id="btn3" 
                 class="all-btn btn btn-danger" 
                 data-go="#box3" 
-                data-color="bg-danger">red</button>
+                data-color="bg-danger"
+                data-num="15">red
+                </button>
             </div>
         </div>
     </div>
@@ -91,13 +96,25 @@
                 }
                 now.setAttribute('class',`box mx-auto ${dataColor}`);
 
+          //計數練習 >按一次 btn減少一次，最低0
+                // 1.抓到原本的data-num
+                let dataNum = Number(this.getAttribute('data-num'));
+                // 2.-1
+                dataNum = dataNum -1;
+                if(dataNum <=0){
+                    dataNum = 0;
+                }
+                // 3.存回去data-num
+                this.setAttribute('data-num' ,dataNum);
+                // 4.btn 文字換掉
+                this.innerText = dataNum;
 
 
             })
 
         });
     
-        
+
     
     
     </script>
