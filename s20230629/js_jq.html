@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .box{
+        width:300px;
+        height:300px;
+
+    }
+    .blue{
+        
+        background-color: lightblue;
+    }
+    .red{
+        
+        background-color: rgb(148, 13, 63);
+    }
+
+    </style>
+</head>
+<body>
+    <button type="button" id="myBtn" data-box="#myBox">myBtn</button> 
+
+    <!-- #myBox為目標ID -->
+    <br>
+    <hr>
+    <br>
+    <div class="box blue" id="myBox">
+
+    </div>
+
+    <script>
+        //綁定
+        const myBtn = document.getElementById('myBtn');
+        const myBox = document.getElementById('myBox');
+        console.log('myBtn', myBtn);
+        console.log('myBox', myBox);
+        
+        // myBtn 加入事件監聽
+        myBtn.addEventListener('click',function(){
+            console.log('myBtn-OK');
+            console.log('this', this);
+            let btnType = this.getAttribute('type');
+            let btnData = this.getAttribute('data-box');
+            console.log('btnType',btnType);
+            console.log('btnData',btnData);
+            let target = document.querySelector(btnData);
+            console.log('target',target);
+            target.setAttribute('class','box red');
+            // this.setAttribute('class','box red')
+        });
+
+
+    </script>
+</body>
+</html>
