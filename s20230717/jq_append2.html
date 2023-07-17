@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        img {
+            /* display: none; */
+            margin: 10px;
+        }
+
+        #apDiv1,
+        #apDiv2,
+        #apDiv3 {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-success itemBtn" type="button" id="appendBtn1">星巴克那堤</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-success itemBtn" type="button" id="appendBtn2">星巴克摩卡</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-success itemBtn" type="button" id="appendBtn3">星冰樂</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="">
+            <div class="">
+                <div class="apDiv row" id="apDiv1">
+
+                    <div class="col-3"><img
+                            src="https://www.starbucks.com.tw/common/objects/images/product/20211015154053432.jpg"
+                            width="200px" alt="星巴克那堤"></div>
+                    <div class="col-3 mt-5">星巴克那堤</div>
+                    <div class="col-3 mt-5">
+                        <input type="number" value="1" class="num">
+                        <button type="button" class="btn btn-success numPlus" id="numPlus">+</button>
+                        <button type="button" class="btn btn-success numDe" id="numDe">-</button>
+                    </div>
+                    <div class="col-3 mt-5 money" id="">120</div>
+
+                </div>
+                <div class="apDiv row" id="apDiv2">
+                    <div class="col-3"><img
+                            src="https://www.starbucks.com.tw/common/objects/images/product/20211001112400455.jpg"
+                            width="200px" alt="星巴克那堤"></div>
+                    <div class="col-3 mt-5">星巴克那堤</div>
+                    <div class="col-3 mt-5">
+                        <input type="number" value="1" class="num">
+                        <button type="button" class="btn btn-success numPlus">+</button>
+                        <button type="button" class="btn btn-success numDe">-</button>
+                    </div>
+                    <div class="col-3 mt-5 money">140</div>
+
+                </div>
+                <div class="apDiv" id="apDiv3">
+                    <div class="col-3"><img
+                            src="https://www.starbucks.com.tw/common/objects/images/product/20211001141919985.jpg"
+                            width="200px" alt="星冰樂"></div>
+                    <div class="col-3 mt-5">星冰樂</div>
+                    <div class="col-3 mt-5">
+                        <input type="number" value="1" class="num">
+                        <button type="button" class="btn btn-success numPlus">+</button>
+                        <button type="button" class="btn btn-success numDe">-</button>
+                    </div>
+                    <div class="col-3 mt-5 money">150</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        // JQUERY 放在ready內
+        $(document).ready(function () {
+            const itemBtn = $('.itemBtn');
+            const apDiv = $('.apDiv');
+            let numPlus = $('.numPlus');
+            let numDe = $('.numDe');
+            let money = $('.money');
+            let num = $('.num');
+
+            //商品的按鈕
+            $.each(itemBtn, function (indexInArray, valueOfElement) {
+                //  console.log('valueOfElement',valueOfElement);
+                //  console.log('indexInArray',indexInArray);
+                $(valueOfElement).click(function () {
+                    // apDiv1.find('img').attr('style','display:block');
+                    apDiv.eq(indexInArray).css('display', 'flex');
+                    apDiv.append();
+                })
+
+
+
+            });
+
+            //商品一數量加減按鈕
+            numPlus.click(function () {
+                let now = $(this);
+                let nowParent = $(this).parent();
+                let getNum = Number(nowParent.find('.num').val());
+                let number = nowParent.find('.num').val(`${getNum + 1}`);
+                // let getMoney = Number(nowParent.parent().find('.money').text());
+                // let calc = Number(getMoney)*Number(nowParent.find('.num').val());
+                // console.log(nowParent.find('.num'));
+                // console.log('getMoney', getMoney);
+                // console.log('getNum', getNum);
+                // nowParent.parent().find('.money').text(`${calc}`)
+
+                // money.text = Number(number)*Number(money);
+
+                
+            })
+            numDe.click(function () {
+                let now = $(this);
+                let nowParent = $(this).parent();
+                let getNum = Number(nowParent.find('.num').val());
+                console.log('getNum',getNum);
+                nowParent.find('.num').val(`${getNum - 1}`);
+            })
+
+
+
+
+        });
+        //JQ end
+
+    </script>
+</body>
+
+</html>
