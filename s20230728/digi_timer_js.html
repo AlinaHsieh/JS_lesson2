@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="mg1" id="ck1"></div>
+        <div class="mg2" id="ck2"></div>
+        <div class="mgd"></div>
+        <div class="mg3" id="ck3"></div>
+        <div class="mg4" id="ck4"></div>
+        <div class="mgd"></div>
+        <div class="mg5" id="ck5"></div>
+        <div class="mg6" id="ck6"></div>
+    </div>
+
+    <script>
+
+        function timeFun() {
+            //抓本地端時間
+            const nt = new Date();
+            const nh = nt.getHours();
+            const nm = nt.getMinutes();
+            const ns = nt.getSeconds();
+            // console.log("nt",nt);
+
+            //拆解六個數字
+            const nk1 = Math.floor(nh / 10);
+            const nk2 = nh % 10;
+            const nk3 = Math.floor(nm / 10);
+            const nk4 = nm % 10;
+            const nk5 = Math.floor(ns / 10);
+            const nk6 = ns % 10;
+
+            const ck1 = document.getElementById('ck1');
+            const ck2 = document.getElementById('ck2');
+            const ck3 = document.getElementById('ck3');
+            const ck4 = document.getElementById('ck4');
+            const ck5 = document.getElementById('ck5');
+            const ck6 = document.getElementById('ck6');
+
+            ck1.setAttribute('class', `mg${nk1}`);
+            ck2.setAttribute('class', `mg${nk2}`);
+            ck3.setAttribute('class', `mg${nk3}`);
+            ck4.setAttribute('class', `mg${nk4}`);
+            ck5.setAttribute('class', `mg${nk5}`);
+            ck6.setAttribute('class', `mg${nk6}`);
+
+            let mgd = document.querySelectorAll('.mgd');
+            mgd[0].style.opacity = 1;
+            mgd[1].style.opacity = 1;
+
+            setTimeout(function () {
+                let mgd = document.querySelectorAll('.mgd');
+                mgd[0].style.opacity = 0
+                mgd[1].style.opacity = 0
+            }, 500)
+
+        }
+        timeFun();
+
+        setInterval(timeFun, 1000)
+
+
+
+
+    </script>
+</body>
+
+</html>
