@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .score {
+            width: 600px;
+            height: 30vh;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .bottom {
+            width: 600px;
+            /* height: 10vh; */
+            margin: 5px auto;
+            padding: 20px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: cadetblue;
+        }
+
+        h2 {
+            color: green;
+        }
+
+        h4 {
+            color: red;
+        }
+
+
+        button {
+            width: 200px;
+            height: 50px;
+
+        }
+
+        .time {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h1>投籃大賽</h1>
+        </div>
+        <div class="score">
+            <h2>
+                歷史最高分數<span id="scoreHighSpan"></span>
+            </h2>
+            <h4>
+                <span id="score">0</span>
+            </h4>
+            <hr>
+            <h4 class="time">10</h4>
+        </div>
+        <div class="bottom">
+            <button type="button" id="startBtn">開始</button>
+            <button type="button" id="inBtn">進球</button>
+            <button type="button" id="resetBtn">重置</button>
+
+
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            const startBtn = $('#startBtn');
+            const inBtn = $('#inBtn');
+            const resetBtn = $('#resetBtn');
+            const score = $('#score');
+            const time = $('.time');
+            const scoreHighSpan = $('#scoreHighSpan');
+
+            const initScore = 0;
+            const initTime = 10;
+
+            let scoreNow = initScore;
+            let timer = initTime;
+            let isGame =true //flag
+
+
+            let scoreHighHistory = localStorage.getItem('scoreHigh')
+            console.log("scoreHighHisory",scoreHighHistory);
+            if ( scoreHighHistory>0){
+                scoreHighSpan.text(scoreHighHistory);
+            }
+
+            inBtn.hide();
+            score.text(scoreNow);
+            time.text(timer);
+
+            resetBtn.click(function(){
+                isGame= true;
+                scoreNow = initScore;
+                timer = initTime;
+                startBtn.text("重新開始");
+                score.text(scoreNow);
+                time.text(timer)
+            })
+            startBtn.click(function () {
+                if(isGame==false){
+                    return false;
+                }
+                $(this).hide();
+                inBtn.show();
+
+              const myIntervel = setInterval(() => {
+                    timer--;
+                    if (timer <1){
+                        // timer = 0
+                        clearInterval(myIntervel);
+                        inBtn.hide();
+                        startBtn.show();
+                        startBtn.text('結束遊戲');
+                        isGame=false;
+
+                        if(scoreNow> scoreHighHistory){
+                            localStorage.setItem('scoreHigh',scoreNow)
+                            scoreHighSpan.text(scoreNow);
+                        }
+                    }
+                    time.text(timer)
+                }, 1000);
+            })
+
+            inBtn.click(function () {
+                if(timer>5){
+                    scoreNow = scoreNow + 2;
+                }else{
+                    scoreNow = scoreNow + 3;
+                }
+                score.text(scoreNow);
+            })
+
+        });
+    </script>
+
+
+</body>
+
+</html>
