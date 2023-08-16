@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+</head>
+
+<body>
+    <div class="div">
+        <button type="button" id="myBtn">myBtn</button>
+    </div>
+    <br>
+    <table id="myTable" class="display">
+        <thead>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+            </tr>
+        </thead>
+        <tbody id="myTbody">
+
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+    <!-- <script src="./js/api.json"></script> -->
+    <script>
+        $(document).ready(function () {
+            // console.log(data);
+            // console.log(data[0]);
+            const myTbody = $('#myTbody')
+            const myTable = $('#myTable')
+            const myBtn = $('#myBtn')
+            let content = '';
+
+            myBtn.click(function () {
+
+                //ajax
+                let url = './js/api.json';
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    dataType: "json",
+                    success: function (res) {
+                        // console.log(res);
+                        let data = res;
+                        console.log(data);
+                        for (let i = 0; i < data.length; i++) {
+                            content = content + `
+                     <tr>
+                         <th>${data[i]['Area']}</th>
+                         <th>${data[i]['Name']}</th>
+                         <th>${data[i]['SportType']}</th>
+                         <th>${data[i]['Address']}</th>
+                         <th>${data[i]['startTime']}</th>
+                         <th>${data[i]['endTime']}</th>
+                     </tr>
+                     `
+                        }
+                        myTbody.html(content)
+                        $("#myTable").DataTable()
+
+                    }
+                })
+            })
+        })
+
+    </script>
+
+</body>
+
+</html>
