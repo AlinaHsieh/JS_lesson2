@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.static{
+    position: static;
+    left:200px;
+
+}
+.relative{
+    position:relative;
+    left:50px;
+    top:50px
+}
+.fixed{
+    width: 10%;
+    height: 50vh;
+    background-color: cadetblue;
+    position: sticky;
+    bottom:300px;
+    left:100px
+}
+.re_container{
+    width: 500px;
+    height: 500px;
+    background-color: aquamarine;
+    position: relative;
+
+}
+.absolute1{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(100, 154, 98);
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+}
+.absolute2{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(36, 36, 231);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+}
+.absolute3{ 
+    width: 100px;
+    height: 100px;
+    background-color: rgb(105, 61, 149);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+}
+.absolute4{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(211, 140, 165);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+}
+    </style>
+</head>
+
+<body>
+    <div class="static">
+        <h1>Position Static</h1>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae nam provident itaque perferendis impedit
+        ullam, necessitatibus non rem soluta ut cum? Et minus dolorem deserunt est tempora amet at autem ducimus ullam
+        provident perspiciatis ab facere ut, itaque explicabo eum animi quaerat fuga unde? Vel commodi, a tempora dicta
+        ipsam ad accusamus eligendi eius consequatur perferendis explicabo beatae eum vitae modi tenetur omnis
+        accusantium? Sapiente illo, beatae voluptates dicta dolorum, repellat vero est suscipit esse facilis labore
+        quidem! Doloremque unde doloribus numquam dolorem voluptatibus accusamus voluptatem, magnam dolorum maxime harum
+        quam! Culpa debitis modi eum dolor repellat rerum. Eaque, consequuntur.
+    </div>
+    <h1>Position relative</h1>
+    <div class="relative">
+        <pre>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+         Recusandae nam provident itaque perfere
+         
+         ndis impedit
+        ullam, necessitatibus non rem soluta u
+        t cum? Et minus dolorem deserunt est tempora amet at autem ducimus ullam
+        provident perspiciatis ab facere ut, i
+        taque explicabo eum animi quaerat f
+        uga unde? Vel commodi, a tempora dicta
+        ipsam ad accusamus eligendi eius co
+        nsequatur perferendis explicabo bea
+        tae eum vitae modi tenetur omnis
+        accusantium? Sapiente illo, beatae
+         voluptates dicta dolorum, repella
+         t vero est suscipit esse facilis labore
+        quidem! Doloremque unde doloribus
+         numquam dolorem voluptatibus accusamus
+          voluptatem, magnam dolorum maxime harum
+        quam! Culpa debitis modi eum dol
+        or repellat rerum. Eaque, consequuntur.
+        Lorem ipsum dolor sit, amet con
+        sectetur adipisicing elit. Recusandae
+         nam provident itaque perferendis impedit
+        ullam, necessitatibus non rem s
+        oluta ut cum? Et minus dolorem
+         deserunt est tempora amet at autem ducimus ullam
+        provident perspiciatis ab fa
+        cere ut, itaque explicabo eu
+        m animi quaerat fuga unde? Ve
+        l commodi, a tempora dicta
+        ipsam ad accusamus eligendi 
+        eius consequatur perferendis 
+        explicabo beatae eum vitae modi tenetur omnis
+        accusantium? Sapiente illo, b
+        eatae voluptates dicta dolorum, 
+        repellat vero est suscipit esse facilis labore
+        quidem! Doloremque unde do
+        lorib
+        us numquam dolorem volupta
+        ibus accusamus voluptatem, 
+        m dolor repellat rerum. Eaq
+        ue, consequuntur.
+    </pre>
+    </div>
+    <br><br>
+    <div class="fixed"></div>
+    <h1>Position absolute</h1>
+    <div class="re_container">
+        <div class="absolute1"></div>
+        <div class="absolute2"></div>
+        <div class="absolute3"></div>
+        <div class="absolute4"></div>
+    </div>
+</body>
+
+</html>

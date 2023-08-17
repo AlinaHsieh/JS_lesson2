@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    width: 1024px;
+    height: 768px;
+    margin:auto;
+}
+.top{
+    width: 1000px;
+    width: 65px;
+    background-color: antiquewhite;
+}
+
+.aside{
+    height: calc(100% - 65px);
+    width: 215px;
+    background-color: azure;
+}
+
+.menu{
+    height: calc(100% - 25px);
+    background-color: beige;
+}
+
+.update{
+    height: 25px;
+    background-color: blanchedalmond;
+}
+
+.main{
+    height: calc(100% - 65px);
+    width: calc(100% - 215px);
+    background-color: burlywood;
+}
+
+.marquee{
+    height: 29px;
+}
+
+.content{
+    height: calc(100% - 29px);
+
+}
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .box{
+            /* 彈跳視窗 */
+            /* 1.html先刻好確定按鈕&彈跳視窗 */
+            /* 2.css設定外觀，彈跳視窗設定display:none */
+            /* 3.JS綁訂好id後，設定function裡面讓彈跳視窗呈現> id.style.display="block" */
+
+            display: none;
+            width: 80%;
+            height: 50vh;
+            background-color: lightblue;
+            position: fixed;
+            top: 100px;
+            left: 10%;
+            /* transform: translate(0px,5px);
+            transition-duration: 2s; */
+            animation:fade 1s;
+        }
+        @keyframes fade{
+            from{
+                opacity:0;
+                top: 80px;
+            }
+            to{
+                opacity: 1;
+                top: 100px;
+            }
+        }
+        #myBtn{
+            position:absolute;
+            top: 10px;
+            right: 10px;
+        }
+       div>#info{
+            text-align: center;
+            font-size: 32px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        
+        <span id="submit">送出訂單</span>
+        <button type="button" id="yes" onclick="yesBtn()">確定</button>
+    </div>
+    <div class="box" id="box">
+        <p id="info">您的訂單已確認</p>
+        <button type="button" id="myBtn" onclick="myBtnFun()" >X</button>
+    </div>
+
+    <script>
+        function myBtnFun(){
+            box.style.display='none';
+        }
+        let myBtn=document.getElementById("myBtn");
+        let box=document.getElementById("box");
+
+        function yesBtn(){
+            box.style.display='block';
+
+        }
+        let yes = document.getElementById("yes");
+        let submit=document.getElementById("submit");
+
+    </script>
+</body>
+</html>

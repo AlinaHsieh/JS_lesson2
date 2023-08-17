@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p::first-line {
+            color: blue;
+        }
+
+        p::first-letter {
+            color:orange;
+            font-size:40px;
+        }
+        P::after{
+            /* content 插入的內容 */
+        content: 'hello :)';
+        color:red;
+        }
+
+        table{
+            width:80%;
+        }
+        table, tr, td{
+            border: 1px solid gray;
+            margin:auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        tr:nth-child(even){
+           background-color:lightgreen;
+        }
+
+        /* 指定格插入文字 */
+        .bonus::after{
+            content:'元'
+        }
+        td{
+            color:blue;
+        }
+        .last-tr>td{
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, eligendi reprehenderit debitis vel eius natus
+        dolor culpa id odio reiciendis iure accusamus velit officia beatae exercitationem vero qui magni minus
+        necessitatibus ipsa perferendis numquam adipisci rem. Delectus, quia tempora? Maxime unde et, illo optio
+        dignissimos veritatis non, amet pariatur eligendi perferendis porro corrupti nulla ab odio quia? Doloribus at
+        numquam illo itaque dignissimos non vel, accusantium aut rerum commodi porro amet recusandae voluptas error
+        aliquam eius optio ex nesciunt iure. Doloremque culpa, amet reiciendis odit ducimus voluptatibus dolores
+        adipisci nostrum ipsa. Saepe deserunt quos eligendi eveniet ullam voluptate dicta ea.
+    </p>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+            <th class="bonus">bonus</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>amy</td>
+            <td>18</td>
+            <td class="bonus">10000</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>cat</td>
+            <td>20</td>
+            <td class="bonus">20000</td>
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>456</td>
+            <td>789</td>
+            <td class="bonus">30000</td>
+        </tr>
+        <tr class="last-tr">
+            <td>1</td>
+            <td>amy</td>
+            <td>18</td>
+            <td class="bonus">40000</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

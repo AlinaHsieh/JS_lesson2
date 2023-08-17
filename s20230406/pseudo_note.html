@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* : 偽元素 */
+        /* 未連結過的 */
+        a:link {
+            color: red
+        }
+        
+        /* 連結過的 */
+        a:visited {
+            color: orange
+        }
+
+        /* 滑鼠左鍵壓下時 */
+        a:hover {
+            color: purple
+        }
+        /* 選到時 */
+        a:active {
+            color: lightpink
+        }
+
+        input:focus {
+            background-color:yellow
+        }
+        /* 基數 */
+        p:nth-child(odd){
+            color:blue
+        }
+        /* 偶數 */
+        P:nth-child(even){
+            color:yellowgreen
+        }
+        /* 選擇第幾個 */
+        P:nth-child(1){
+            color:green
+        }
+
+        /* table的CSS */
+        table{
+            width:70%;
+            margin:auto;
+        }
+        table,td,th{
+            border:1px solid lightgray;
+            border-collapse: collapse;
+            text-align: auto;
+        }
+        tr:nth-child(even){
+            background-color:lightyellow
+        }
+        .vip:hover{
+            color:red
+        }
+        #yes:hover{
+            color:lightcoral
+        }
+
+        tr.vip{
+            color:lightblue
+        }
+
+       form,fieldset{
+            width:70%;
+            text-align:center;
+            margin:auto;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://tw.yahoo.com/?p=us&guccounter=1">測試連結</a>
+    <form action="url" method="">
+        <fieldset>
+            <legend>表單欄位群組</legend>
+            <p>
+                <!-- text 文字 -->
+                <lable for="name">姓名</lable>
+                <input type="text" name="name" id="name">
+            </p>
+            <p>
+                <!-- number 數字 -->
+                <lable for="">電話</lable>
+                <input type="tel" name="tel" id="tel" pattern="[0-9]{4}-[0-9]{3}-[0-9{3}]" placeholder="0911-123-123">
+            </p>
+            <p>
+                <!-- password 密碼 -->
+                <lable for="chinese">密碼</lable>
+                <input type="password" name="password" id="password">
+            </p>
+            
+            <p>
+                <!-- radio 單選 送到php 只送一個gender name 三個都取一樣 -->
+                <!-- label 放在後面 -->
+                <input type="radio" name="gender" id="" value="male">
+                <label for="">男</label>
+                <input type="radio" name="gender" id="" value="female">
+                <label for="">女</label>
+                <input type="radio" name="gender" id="" value="other">
+                <label for="">其他</label>
+            </p>
+        </fieldset>
+    </form>
+    <table>
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>age</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>amy</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td id="yes">3</td>
+            <td>cat</td>
+            <td>20</td>
+        </tr>
+        <tr class="vip">
+            <td>123</td>
+            <td>456</td>
+            <td>789</td>
+        </tr>
+        <tr class="vip">
+            <td>1</td>
+            <td>amy</td>
+            <td>18</td>
+        </tr>
+    </table>
+</body>
+</html>

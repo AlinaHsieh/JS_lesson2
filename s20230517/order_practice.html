@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>點餐系統</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        body {
+            margin: center;
+
+        }
+
+        .wrap {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .title,
+        .list1,
+        .list2,
+        .list3,
+        .way,
+        .sum {
+            display: flex;
+            flex-direction: row;
+            width: 60%;
+            min-width: 900px;
+            height: 150px;
+            margin: 0 0;
+            border-collapse: collapse;
+
+        }
+
+        .title {
+            /* border: 1px solid black; */
+            background-color: lightgray;
+            height: 70px;
+        }
+        .way,.sum{
+            height: 70px;
+            border: 1px solid gray;
+        }
+        /* .title>div,
+        .list1>div,
+        .list2>div,
+        .list3>div {
+            padding-top: 20px;
+        } */
+
+        .item,
+        .pic,
+        .price,
+        .num,
+        .calc {
+            border: 1px solid lightgray;
+            width: calc(100%/5);
+        }
+       .price::before,
+        #sumtext::before{
+        content: "$";
+       }
+    </style>
+</head>
+
+<body>
+    <h1>輕食舒肥餐</h1>
+    <div class="wrap">
+        <div class="title">
+            <div class="item">品項</div>
+            <div class="pic">圖片</div>
+            <div class="price">價格</div>
+            <div class="num">數量</div>
+            <div class="calc">小計</div>
+        </div>
+        <div class="list1">
+            <div class="item item1">1</div>
+            <div class="pic pic1"><img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/o33d07922a670f717d002703806ae4e8b-4620693218520375109-201027-0006-1603796253.jpg" height="95%" alt=""></div>
+            <div class="price price1" id="pri1">100</div>
+            <div class="num num1">
+                <label for="num1"></label>
+                <input type="number" name="num1" id="num1" value="0" min="0" onchange="changeCount();sumchange()" >
+               <!-- min=0，才不會出現負數；設定onchange事件，讓數量變動可以即時顯示 -->
+            </div>
+            <div class="calc calc1">
+                <span id="calc1">金額:</span>
+            </div>
+        </div>
+        <div class="list2">
+            <div class="item item2">2</div>
+            <div class="pic pic2"><img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/o33d07922a670f717d002703806ae4e8b-4620693218520375109-201027-0004-1603796255.jpg?crop=1xw:1xh;center,top&resize=480:*" height="95%" alt=""></div>
+            <div class="price price2" id="pri2">200</div>
+            <div class="num num2">
+                <label for="num2"></label>
+                <input type="number" name="num2" id="num2" value="0" min="0" onchange="changeCount2();sumchange()">
+                <!-- <input type="button" value="確定" onclick="btnFun2()"> -->
+            </div>
+            <div class="calc calc2">
+                <span id="calc2">金額:</span>
+            </div>
+        </div>
+        <div class="list3">
+            <div class="item item3">3</div>
+            <div class="pic pic3"><img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/o33d07922a670f717d002703806ae4e8b-4620693218520375109-201027-0003-1603796255.jpg?crop=1xw:1xh;center,top&resize=480:*" width="95%" alt=""></div>
+            <div class="price price3" id="pri3">300</div>
+            <div class="num num3">
+                <label for="num3"></label>
+                <input type="number" name="num3" id="num3" value="0" min="0" onchange="changeCount3();sumchange()">
+                <!-- <input type="button" value="確定" onclick="btnFun3()"> -->
+
+            </div>
+            <div class="calc calc3">
+                <span id="calc3">金額:</span>
+            </div>
+        </div>
+        <div class="way">
+
+        </div>
+        <div class="sum">
+            <input type="button" id="sum" value="總計" onclick="sumbtn()" onchange="sumchange()">
+            <span id="sumtext">金額：</span>
+        </div>
+    </div>
+    <script>
+        let num1 = document.getElementById("num1");
+        let num2 = document.getElementById("num2");
+        let num3 = document.getElementById("num3");
+        let pri1 = document.getElementById("pri1");
+        let pri2 = document.getElementById("pri2");
+        let pri3 = document.getElementById("pri3");
+        let calc1 = document.getElementById("calc1");
+        let calc2 = document.getElementById("calc2");
+        let calc3 = document.getElementById("calc3");
+        let sum = document.getElementById("sum");
+        let sumtext=document.getElementById("sumtext");
+
+        function btnFun1() {
+            let num1Value = num1.value;
+            console.log('num1Value', num1Value);
+            let pri1Value = pri1.innerText;
+            let calc1result = Number(num1Value) * Number(pri1Value);
+            calc1.innerText = "$" + calc1result;
+        }
+        function btnFun2() {
+            let num2Value = num2.value;
+            console.log('num2Value', num2Value);
+            let pri2Value = pri2.innerText;
+            let calc2result = Number(num2Value) * Number(pri2Value);
+            calc2.innerText = "$" + calc2result;
+        }
+        function btnFun3() {
+            let num3Value = num3.value;
+            console.log('num3Value', num3Value);
+            let pri3Value = pri3.innerText;
+            let calc3result = Number(num3Value) * Number(pri3Value);
+            console.log(typeof (calc3result));
+            calc3.innerText = "$" + calc3result;
+        }
+        function sumbtn() {
+            let num1Value = num1.value;
+            console.log('num1Value', num1Value)
+            let pri1Value = pri1.innerText;
+            console.log('pri1Value', pri1Value)
+            let num2Value = num2.value;
+            console.log('num2Value', num2Value)
+            let pri2Value = pri2.innerText;
+            console.log('pri2Value', pri2Value)
+            let num3Value = num3.value;
+            console.log('num3Value', num3Value)
+            let pri3Value = pri3.innerText;
+            console.log('pri3Value', pri3Value)
+            let sumValue = (Number(num1Value) * Number(pri1Value)) + (Number(num2Value) * Number(pri2Value)) + (Number(num3Value) * Number(pri3Value));
+            let calc1result = Number(num1Value) * Number(pri1Value);
+            let calc2result = Number(num2Value) * Number(pri2Value);
+            let calc3result = Number(num3Value) * Number(pri3Value);
+            sumtext.innerText = "總計金額：" + sumValue;
+
+            calc1.innerText = "$" + calc1result;
+            calc2.innerText = "$" + calc2result;
+            calc3.innerText = "$" + calc3result;
+
+            let discount=0;
+            if(sumValue>=300){
+                discount=sumValue*0.8;
+                sumtext.innerHTML="訂單滿$300打8折，<div style='color:red'>金額為："+ discount+"</div>";
+            }else{
+                discount=sumValue;
+            }
+        }
+       
+        // 在JS設定即時改變的金額(記得要顯示出來)
+        function changeCount(){
+            let num1Value = num1.value;
+            let pri1Value = pri1.innerText;
+            let calc1result = Number(num1Value) * Number(pri1Value); 
+            calc1.innerText = "$" + calc1result;
+        }
+        function changeCount2(){
+            let num2Value = num2.value;
+            let pri2Value = pri2.innerText;
+            let calc2result = Number(num2Value) * Number(pri2Value);
+            calc2.innerText = "$" + calc2result;
+        }
+        function changeCount3(){
+            let num3Value = num3.value;
+            let pri3Value = pri3.innerText;
+            let calc3result = Number(num3Value) * Number(pri3Value);
+            calc3result=calc3result;
+            calc3.innerText = "$" + calc3result;
+        }
+        function sumchange(){
+            let num1Value = num1.value;
+            let pri1Value = pri1.innerText;
+            let num2Value = num2.value;
+            let pri2Value = pri2.innerText;
+            let num3Value = num3.value;
+            let pri3Value = pri3.innerText;
+            // let sumValue = (Number(num1Value) * Number(pri1Value)) + (Number(num2Value) * Number(pri2Value)) + (Number(num3Value) * Number(pri3Value));
+            let calc1result = Number(num1Value) * Number(pri1Value); 
+            let calc2result = Number(num2Value) * Number(pri2Value);
+            let calc3result = Number(num3Value) * Number(pri3Value);
+            let sumValue = calc1result+calc2result+calc3result;
+            sumtext.innerText = "總計金額：" + sumValue;
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>form</h1>
+    <!-- table跟form都不能再包一次同樣的東西 -->
+    <!-- table可以包 form -->
+    <!-- form可以包 table -->
+    <!-- input-attr name 表單:傳到php會顯示的東西 -->
+    <!-- attri id (方便找到)-->
+    <!-- name跟id是不同的  -->
+    <!-- id & name是不同的，但我們很懶常打一樣的 -->
+    <!-- for 我跟誰有關 id -->
+    <!-- attr action就是要導向的網址 xxxx.php -->
+    <!-- attr method 我要顯示傳送的狀態 get安全性低/ post安全性高 -->
+    <form action="url" method="">
+        <fieldset>
+            <legend>表單欄位群組</legend>
+        <p>
+            <!-- text 文字 -->
+            <lable for="name">姓名</lable>
+            <input type="text" name="name" id="name">
+        </p>
+        <p>
+            <!-- number 數字 -->
+            <lable for="">數學</lable>
+            <input type="number" name="" id="">
+        </p>
+        <p>
+            <!-- password 密碼 -->
+            <lable for="chinese">密碼</lable>
+            <input type="password" name="password" id="password">
+        </p>
+    </label>       
+        <p>
+        <!-- radio 單選 送到php 只送一個gender name 三個都取一樣 -->
+            <!-- label 放在後面 -->
+            <input type="radio" name="gender" id="" value="male">
+            <label for="">男</label>
+            <input type="radio" name="gender" id="" value="female">
+            <label for="">女</label>
+            <input type="radio" name="gender" id="" value="other">
+            <label for="">其他</label>
+        </p>
+        <p>
+            <input type="checkbox" name="love[]" id="read">
+            <label for="read">閱讀<label>
+            <input type="checkbox" name="love" id="bike"
+            <label for="bike">自行車</label>
+            <input type="checkbox" name="love[]" id="balEl">
+            <lable for="ball">打球</lable>
+            <input type
+        </p>
+        <p>
+            <!-- file 上傳檔案 -->
+            <input type="file" name="file" id="file">
+        </p>
+        <p>
+            <!-- date 日期 -->
+            <input type="date" name="date" id="date">
+        </p>
+        <p>
+            <!-- 多行文字 留言板-->
+            <textarea name="textarea" id="textarea" cols="50" rows="5">  
+            </textarea>
+        </p>
+        <p>
+            <!-- select 下拉選單 -->
+            <!-- 1.select 不是input -->
+            <!-- 2.option內容 -->
+            <!-- 3.html文字不用與value相同 -->
+            <!-- 實際傳到後端，phone=value -->
+            <!-- phone=>1 -->
+            <label for="phone">手機品牌</label>
+            <select name="phone" id="phone">
+                <option value="1">HTC</option>
+                <option value="2">Apple</option>
+                <option value="3">Asus</option>
+            </select>
+        </p>
+        <hr>
+
+        <p>
+            <input type="submit" name="" id="" value="送出">
+            <input type="reset" value="重設">
+        </p>
+    </label>
+    </form>
+
+
+</body>
+</html>

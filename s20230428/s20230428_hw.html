@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{
+        box-sizing: border-box;
+        /* background-color: azure; */
+    }
+    .wrap{
+        width: 1400px;
+        height: 80vh;
+        /* background-color: bisque; */
+        margin: auto;
+        
+    }
+    .header{
+        width:100%;
+        height: 120px;
+        background-color: rgb(215, 209, 201);
+        text-align: center;
+        padding-top: 30px;
+        font-size: 50px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+
+    ul{ list-style-type: none;
+       
+    }
+    li{ display: inline-block;
+    }
+    a{
+        text-decoration: none;
+        color: brown;
+        font-size: 20px;
+    }
+    .nav{
+        width: 100%;
+        height: 100px;
+        background-color: rgb(201, 185, 167);
+        margin: auto;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-top: 20px;
+
+
+    }
+    .feature{
+        width: 100%;
+        height: 100px;
+        background-color: rgb(186, 198, 175);
+        margin-top: 20px;
+
+    }
+    .col{
+        width: 100%;
+        /* border: 1px solid black; */
+        display: flex;
+        flex-direction: row;
+        justify-content:space-around;
+    }
+    .col1{
+        width:32%;
+        height: 100px;
+        background-color: burlywood;
+        margin-top: 20px;
+        margin-right: 20px;
+
+    }
+    .col2{
+        width:32%;
+        height: 100px;
+        background-color: rgb(189, 175, 157);
+        margin: 20px;
+    
+    }
+    .col3{
+        width:32%;
+        height: 100px;
+        background-color: burlywood;
+        margin-top: 20px;
+        margin-left: 20px;
+    
+    }
+    footer{
+        width: 100%;
+        height: 100px;
+        background-color: rgb(186, 198, 175);
+    }
+    a:hover{
+        color: rgb(105, 86, 86);
+    }
+</style>
+
+</head>
+
+<body>
+<div class="wrap">
+    <div class="header">
+        Logo
+    </div>
+    <div class="nav">
+        <ul>
+            <li><a href="#">Home</a>&nbsp;&nbsp;</li>
+            <li><a href="#">Products</a>&nbsp;&nbsp;</li>
+            <li><a href="#">Services</a>&nbsp;&nbsp;</li>
+            <li><a href="#">About</a>&nbsp;&nbsp;</li>
+            <li><a href="#">Contact</a>&nbsp;&nbsp;</li>
+        </ul>
+    </div>
+    <div class="feature"></div>
+    <div class="col">
+        <div class="col1"></div>
+        <div class="col2"></div>
+        <div class="col3"></div>
+    </div>
+    <footer></footer>
+</div>
+</body>
+
+</html>

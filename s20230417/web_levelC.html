@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            border: 1px solid gray
+        }
+
+        .wrap {
+            width: 80vw;
+            margin: auto;
+            background-color: antiquewhite;
+        }
+
+        .top {
+            height: 10vh;
+            background-color: beige;
+        }
+
+        .section {
+            display: flex;
+            flex-direction: row;
+            height: 85vh;
+            background-color: beige;
+        }
+
+        .section1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-basis: 25%;
+            background-color: rgb(153, 124, 90);
+        }
+
+        .section2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-basis: 75%;
+            background-color: blanchedalmond;
+        }
+
+        .nav {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 95%;
+
+            /* height: 95%vh; */
+            align-items: flex-start;
+            background-color: burlywood;
+        }
+
+        .update {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 5%;
+            height: 5vh;
+            align-items: baseline;
+        }
+
+        .marquee {
+            display: flex;
+            flex-direction: row;
+            flex-basis: 5%;
+            height: 5vh;
+            align-items: flex-start;
+            background-color: brown;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            flex-basis: 95%;
+            /* align-items:; */
+            height: 60vh;
+            background-color: rgb(175, 199, 151);
+        }
+
+        .footer{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            height: 5vh;
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="top">top</div>
+        <div class="section">
+            <div class="section1">
+                <div class="nav">nav</div>
+                <div class="update">update</div>
+            </div>
+            <div class="section2">
+                <div class="marquee">Marquee</div>
+                <div class="content">Content</div>
+            </div>
+        </div>
+        <div class="footer">footer</div>
+    </div>
+</body>
+
+</html>

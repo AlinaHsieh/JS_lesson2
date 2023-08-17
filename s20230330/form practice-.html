@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>公司職員資料</h1>
+    <form action="url" method="">
+        <fieldset>
+            <legend>表單欄位群組</legend>
+            <p>姓名：<input type="text" name="username"></p>
+            <p>出生年月日：<input type="date"></p>
+            <p>手機號碼：<input type="tel" name="tel" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" placeholder="0933-123-133"></p>
+            <p>密碼：<input type="password" name="pwd" placeholder="至少8個字元"></p>
+            <p><input type="button" value="上一頁" onclick="history.go(-1)"></p>
+            <p><input type="button" value="下一頁" onclick="history.go(1)"></p>
+            <p><input type="image" src=""></p>
+            <p>性別：<input type="radio" name="gender">
+                <label for="">男</label>
+                性別<input type="radio" name="gender">
+                <label for="">女</label>
+                <label for="">其他</label>
+            </p>
+            <p>
+                手機型號：
+                <input type="checkbox" name="phonetype" id="phonetype">蘋果
+                <input type="checkbox" name="phonetype" id="phonetype">三星
+            </p>
+           
+            <p><input type="submit" value="送出資料"></p>
+            <p><input type="reset" value="清除資料"></p>
+        </fieldset>
+    </form>
+</body>
+</html>

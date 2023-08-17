@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 1024px;
+            height: 768px;
+            margin: auto;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 1024;
+            height: 768px;
+            border: 1px solid #ccc;
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            justify-items: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top {
+            flex-basis: 1000px;
+            height: 65px;
+            border: 1px solid #ccc;
+            background-color: antiquewhite;
+        }
+
+        .aside {
+            flex-basis: 215px;
+            border: 1px solid #ccc;
+            height: calc(768px - 65px - 20px - 4px);
+            background-color: beige;
+        }
+        .aside > .menu{
+            flex-basis: calc(100%-25px);
+
+        }
+        .aside > .update{
+            flex-basis: 25px;
+
+        }
+        .section {
+            flex-basis: calc(1000px - 215px);
+            border: 1px solid #ccc;
+            height: calc(768px - 65px - 20px - 4px);
+            flex-direction: column;
+            background-color: cornsilk;
+        }
+
+        .section>  .marquee{
+            flex-basis: 29px;
+        }
+        footer{
+            flex-basis:1000px;
+            height:20px ;
+            border: 1px solid #ccc;
+            margin: auto;
+            background-color: rgb(226, 216, 218);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            top
+        </div>
+
+        <div class="aside">
+            aside
+            <div class="menu">
+                menu
+            </div>
+            <div class="update">
+                update
+            </div>
+        </div>
+        <div class="section">
+            section
+            <div class="marquee">
+                marquee
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <footer>
+            footer
+        </footer>
+    </div>
+
+</body>
+
+</html>

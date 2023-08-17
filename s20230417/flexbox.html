@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .nav,
+        .main,
+        .footer,
+        .container4 {
+            display: flex;
+            flex-direction: row;
+            /* align-items: center; */
+            justify-content: center;
+            /* flex-wrap: wrap; */
+        }
+
+        .nav {
+            background-color: antiquewhite;
+        }
+
+        .main {
+            background-color: aquamarine;
+        }
+
+        .footer {
+            background-color: bisque;
+        }
+
+        .container4 {
+            background-color: cornsilk;
+        }
+
+        .item41,
+        .item42 {
+            margin: 100 0px;
+            height: 100vh;
+        }
+
+        .navitem {
+            background-color: rgb(255, 255, 255);
+            margin: 50px;
+            width: 300px;
+            height: 100px;
+        }
+
+        /* section1 */
+        .section1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: cadetblue;
+            margin: 60px;
+            flex-basis: 20%;
+            height: 70vh;
+        }
+        .section1a {
+            margin: 50px;
+            background-color: antiquewhite;
+            flex-basis: 100px;
+            width: 100px;
+        }
+        .section1b {
+            margin: 50px;
+            background-color: antiquewhite;
+            flex-basis: 100px;
+            width: 100px;
+        }
+        .section1c {
+            margin: 50px;
+            background-color: antiquewhite;
+            flex-basis: 100px;
+            width: 100px;
+        }
+        /* section 2 */
+        .section2 {
+            display: flex;
+            flex-direction: row;
+            background-color: cadetblue;
+            margin: 60px;
+            flex-basis: 60%;
+            height: 70vh;
+            justify-content: center;
+            align-items: center;
+            /* flex-wrap: wrap; */
+        }
+        .section2a {
+            margin: 40px;
+            margin-bottom: 40px;
+            background-color: antiquewhite;
+            flex-basis: 200px;
+            height: 500px;
+        }
+        .section2b {
+            margin: 40px;
+            background-color: antiquewhite;
+            flex-basis: 400px;
+            height: 500px;
+        }
+        .section2c {
+            margin: 40px;
+            margin-right: 50px;
+            background-color: antiquewhite;
+            flex-basis: 200px;
+            height: 500px;
+        }
+        /* section3 */
+        .section3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: cadetblue;
+            margin: 60px;
+            flex-basis: 20%;
+            height: 70vh;
+        }
+       
+        .section3a {
+            margin: 50px;
+            background-color: antiquewhite;
+            flex-basis: 100px;
+            width: 100px;
+        }
+        .section3b {
+            margin: 50px;
+            background-color: antiquewhite;
+            flex-basis: 100px;
+            width: 100px;
+        }
+        .section3c {
+            margin: 50px;
+            background-color: antiquewhite;
+            flex-basis: 100px;
+            width: 100px;
+        }
+
+        .footer1 {
+            background-color: cadetblue;
+            margin: 50px;
+            width: 100px;
+            height: 30px;
+        }
+
+        .footer2 {
+            background-color: cadetblue;
+            margin: 50px;
+            width: 100px;
+            height: 30px;
+        }
+
+        .footer3 {
+            background-color: cadetblue;
+            margin: 50px;
+            width: 100px;
+            height: 30px;
+        }
+
+        .item41 {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            flex-basis: 20%;
+            height: 100vh;
+            background-color: cadetblue;
+        }
+
+        .item42 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-basis: 80%;
+            height: 100vh;
+            background-color: blueviolet;
+        }
+
+        .item4a {
+            width: 100px;
+            flex-basis: 100px;
+            background-color: lightgray;
+            margin: 20px;
+
+        }
+
+        .item4b {
+            width: 100px;
+            flex-basis: 200px;
+            background-color: lightgray;
+            margin: 20px;
+
+        }
+
+        .item4c {
+            width: 100px;
+            flex-basis: 300px;
+            background-color: lightgray;
+            margin: 20px;
+
+        }
+
+        .item42a {
+            flex-basis: 100px;
+            height: 100px;
+            background-color: lightgray;
+            margin: 20px;
+            align-self: flex-start;
+        }
+
+        .item42b {
+            flex-basis: 100px;
+            height: 100px;
+            background-color: lightgray;
+            margin: 20px;
+            align-self: center;
+        }
+
+        .item42c {
+            flex-basis: 100px;
+            height: 100px;
+            background-color: lightgray;
+            margin: 20px;
+            align-self: flex-end;
+        }
+
+        .item42d {
+            flex-basis: 100px;
+            height: 100px;
+            background-color: lightgray;
+            margin: 20px;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="nav">
+            <div class="navitem"></div>
+            <div class="navitem"></div>
+            <div class="navitem"></div>
+
+        </div>
+    </div>
+    <div>
+        <div class="main">
+            <div class="section1">
+                <div class="section1a">s1a</div>
+                <div class="section1b">s1b</div>
+                <div class="section1c">s1c</div>
+            </div>
+            <div class="section2">
+                <div class="section2a">s2a</div>
+                <div class="section2b">s2b</div>
+                <div class="section2c">s2c</div>
+            </div>
+            <div class="section3">
+                <div class="section3a">s3a</div>
+                <div class="section3b">s3b</div>
+                <div class="section3c">s3c</div>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <div class="footer">
+            <div class="footer1"></div>
+            <div class="footer2"></div>
+            <div class="footer3"></div>
+        </div>
+    </div>
+    <div>
+        <div class="container4">
+            <div class="item41">41
+                <div class="item4a">4a</div>
+                <div class="item4b">4b</div>
+                <div class="item4c">4c</div>
+            </div>
+            <div class="item42">42
+                <div class="item42a">42a</div>
+                <div class="item42b">42b</div>
+                <div class="item42c">42c</div>
+                <div class="item42d">42d</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

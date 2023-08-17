@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <label for="name">name:</label>
+        <input type="text" id="name">
+    </p>
+    <p>
+        <label for="mobile">mobile:</label>
+        <input type="text" id="mobile">
+    </p>
+    <p>
+        <button type="button">GET-BTN</button>
+    </p>
+    <hr>
+    <p>
+        輸入資料
+    </p>
+    <p id="result">
+        結果是......
+    </p>
+    <script>
+        let nameText = document.getElementById('name').value;
+        let mobileText = document.getElementById('mobile').value;
+        let muBtn = document.getElementById('myBtn')
+        function myFunction(){
+            console.log(nameText);
+            console.log(mobileText)
+        }
+    </script>
+</body>
+
+</html>

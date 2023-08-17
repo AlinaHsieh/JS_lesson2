@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 建立form表單 -->
+    <form action="" method="">
+        <label for="">number 1</label>
+        <!-- 每個input都要加id,用來讓js綁定 -->
+        <input type="text" name="num1" id="num1">
+        <br>
+        <label for="">四則運算</label>
+        <!-- 四則運算下拉式選單 -->
+        <select name="calc" id="calc">
+            <option value="addition">+</option>
+            <option value="subtraction">-</option>
+            <option value="multiplication">*</option>
+            <option value="division">/</option>
+        </select>
+        <br>
+        <label for="">number 2</label>
+        <input type="text" name="num2" id="num2">
+        <br><br>
+        <button type="button" id="button" onclick="myBtnFun()">Get...</button>
+        <button type="button" id="button2" onclick="reset()">Reset</button>
+        <p id="tip">(請輸入數字進行運算)</p>
+        <p id="result">計算結果為...</p>
+    </form>
+
+    <script>
+        // 綁定id
+        let num1 = document.getElementById("num1");
+        let num2 = document.getElementById("num2");
+        let calc = document.getElementById("calc");
+        let tip = document.getElementById("tip");
+        let result = document.getElementById("result");
+
+        // 設定提示為不顯示
+        function initfun() {
+            tip.style.display = 'none';
+            result.style.display = 'none';
+        }
+        // 設定清空值
+        function reset() {
+            num1 = '';
+            num2 = '';
+        }
+
+        // 計算加總的功能設定>用function函數,作用在按鈕onclick的時候
+        function myBtnFun() {
+            // 變數num1Value賦值
+            let num1Value = num1.value;
+            // 把log顯示在console
+            console.log('num1Value', num1Value);
+            // 變數num2Value賦值 
+            let num2Value = num2.value;
+            // 把log顯示在console
+            console.log('num2Value', num2Value);
+            // 變數calcValue賦值 
+            let calcValue = calc.value;
+            // 把log顯示在console
+            console.log('calcValue', calcValue);
+
+            // 由於下方resultValue重複，因此寫在外面，重設resultValue的值
+            let resultValue = 0;
+            // 用switch Case做四則運算
+            switch (calcValue) {
+                case 'addition':
+                    resultValue = Number(num1Value) + Number(num2Value)
+                    break;
+                case 'subtraction':
+                    resultValue = Number(num1Value) - Number(num2Value)
+                    break;
+                case 'multiplication':
+                    resultValue = Number(num1Value) * Number(num2Value)
+                    break;
+                case 'division':
+                    resultValue = Number(num1Value) / Number(num2Value)
+                    break;
+
+                default:
+                    break;
+            }
+            // 把log顯示在console
+            console.log('resultValue', resultValue)
+            // 把結果印出，innerText可以重新改寫result變數
+            result.innerText = `得出的結果是 ${resultValue}`;
+            // 清空註解
+            initfun();
+            // 顯示結果就好，不顯示註解
+            result.style.display = "block";
+        }
+
+
+    </script>
+</body>
+
+</html>

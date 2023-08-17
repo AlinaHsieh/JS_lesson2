@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(235, 230, 223);
+
+        }
+
+        .container,
+        .container2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(183, 134, 71);
+            margin: 10px;
+
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(214, 188, 154);
+            margin: 10px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                background-color: rgb(186, 242, 223);
+            }
+
+            .container,
+            .container2 {
+                flex-wrap: wrap;
+            }
+
+            .box {
+                width: 80%;
+                margin: 20px;
+            }
+
+            .box2 {
+                width: calc(90% / 2);
+                margin: 10px;
+            }
+
+        }
+
+        .form{
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        input{
+            width: 400px;
+            height: 30px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        @media screen and (max-width:600px){
+            .form{
+                flex-wrap: wrap;
+            }
+       } 
+
+
+       
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="container2">
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+        <div class="box2"></div>
+    </div>
+    <form action="" method="">
+        <div class="form">
+            <div class="box3">
+                姓名：<input type="text" name="name" id="name">
+            </div>
+            <div class="box3">
+                電話：<input type="number" name="phone" id="phone">
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

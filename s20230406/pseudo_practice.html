@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: 0px solid rgb(226, 226, 226);
+            text-align: center;
+            border-collapse: collapse;
+            margin: auto;
+            text-align: center;
+
+        }
+
+        table {
+            width: 60%;
+            background-color: rgb(252, 253, 242);
+            font-size: 20px;
+
+        }
+
+        td {
+            height: 150px;
+        }
+
+        th {
+            color: rgb(75, 13, 13);
+            background-color: rgb(192, 170, 142);
+            font-size: 24px;
+            height: 60px;
+        }
+
+        td>img {
+            margin: auto;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%
+        }
+
+        tr:nth-child(even) >td {
+            font-size: 20px;
+            height: 35px;
+            background-color: rgb(235, 241, 243)
+        }
+
+        tr:nth-child(odd) >td {
+            font-size: 20px;
+            height: 50px;
+            background-color: rgb(69, 69, 156);
+            color: rgb(219, 199, 199);
+        }
+
+        .sum>td,
+        discount>td {
+            color: rgb(206, 124, 94);
+            font-size: 30px;
+            font-weight: bold;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th width="10%">序號</th>
+            <th width="15%">品名</th>
+            <th width="20%">參考圖片</td>
+            <th width="15%">數量</th>
+            <th>單價</th>
+            <th>總價</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>珍奶</td>
+            <td><img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1605598757.jpg?crop=0.494xw:0.987xh;0.506xw,0.0128xh&resize=640:*"
+                    width=""></td>
+            <td>1</td>
+            <td>100</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>咖啡</td>
+            <td><img src="https://micannie.com/wp-content/uploads/2021/06/%E5%86%B0%E5%92%96%E5%95%A1.jpg" width="">
+            </td>
+            <td>2</td>
+            <td>100</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>紅茶</td>
+            <td><img src="https://photoos.mac89.com/180313/180313_59/AEvvpNA5JT_small.jpg" width=""></td>
+            <td>3</td>
+            <td>200</td>
+            <td>600</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>花茶</td>
+            <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQug3e8e_ARiELMO8HOsRe8toO2a1CMC60SlwcAYq9O1KMQn9irhXkKdNt9fjQewJ0QuA0&usqp=CAU"
+                    width="150"></td>
+            <td>1</td>
+            <td>100</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="sum">總金額</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1000</td>
+        </tr>
+        <tr class="discount">
+            <td>優惠價</td>
+            <td colspan="4">1300*0.8</td>
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+            <!-- <td></td> -->
+            <td>800</td>
+        </tr>
+    </table>
+</body>
+
+</html>

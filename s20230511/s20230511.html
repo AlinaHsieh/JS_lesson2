@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="">
+        <label for="">A</label>
+        <input type="text" name="a" id="a">
+        <br>
+        <select name="calc" id="calc">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <br>
+        <label for="">B</label>
+        <input type="text" name="b" id="b">
+        <br>
+        <button type="button" id="myBtn" onclick="myBtnFun()">結果</button>
+        <button type="button" id="myBtn2" onclick="myBtnFun2()">重設</button>
+        <br>
+        <p id="tips">輸入數字進行加總</p>
+        <br>
+        <p id="result">結果是:</p>
+
+
+    </form>
+    <script>
+        let inputA = document.getElementById('a');
+        let inputB = document.getElementById('b');
+        let muBtn = document.getElementById('myBtn');
+        let muBtn2 = document.getElementById('myBtn2');
+        let result = document.getElementById('result');
+        let tips = document.getElementById('tips');
+        let calc = document.getElementById('calc');
+        
+
+        // function initFun(){
+        //     tips.style.display= 'none';
+        //     result.style.display = 'none';
+        // }
+
+
+        function myBtnFun() {
+            let inputAvalue = inputA.value;
+            let inputBvalue = inputB.value;
+            let calcValue = calc.value;
+            console.log(inputAvalue);
+            console.log(inputBvalue);
+            console.log(calcValue);
+
+            if (inputAvalue < 0 || inputBvalue < 0) {
+                alert('error')
+                return false;
+            }
+            
+            let resultValue = 0;
+            switch (calcValue) {
+                case '+':
+                    resultValue = Number(inputAvalue) + Number(inputBvalue);
+                    break;
+                case '-':
+                    resultValue = Number(inputAvalue) - Number(inputBvalue);
+                    break;
+                case '*':
+                    resultValue = Number(inputAvalue) * Number(inputBvalue);
+                    break;
+                case '/':
+                    resultValue = Number(inputAvalue) / Number(inputBvalue);
+                    break;
+                default:
+                    break;
+            }
+            console.log('resultValue',resultValue)
+            result.innerText = `執行結果是 ${resultValue}`;
+
+
+            // let resultValue = Number(inputAvalue) + Number(inputBvalue);
+            // result.innerText = `總計 ${resultValue}`;
+            // console.log('hello myBtnFun');
+            // console.log('a', inputAvalue);
+            // console.log('b', inputBvalue);
+            // console.log('myBtn', myBtn , '123123123');
+            // console.log('inputAvalue',inputAvalue);
+            // console.log('inputAvalue type =>',typeof (inputAvalue));
+            // console.log('inputBvalue',inputBvalue);
+            // console.log('inputBvalue type =>',typeof (inputBvalue));
+            // console.log(resultValue);
+        }
+
+        function myBtnFun2() {
+            document.getElementById('a').value = '';
+            document.getElementById('b').value = '';
+        }
+
+        // initFun()
+        // tips.style.display = 'block';
+    </script>
+
+</body>
+
+</html>
