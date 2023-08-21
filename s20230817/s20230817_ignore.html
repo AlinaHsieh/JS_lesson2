@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+</head>
+
+<body>
+    <div class="container" id="myContainer">
+        <table id="myTable" class="display">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>最低溫度0-12hr</th>
+                    <th>最低溫度12-24hr</th>
+                    <th>最低溫度24-36hr</th>
+                </tr>
+            </thead>
+            <tbody id="myTbody">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+    <script src="../ignore/self.js"></script>
+    <!-- <script src="./js/api.json"></script> -->
+    <script>
+        $(document).ready(function () {
+            const myContainer = $("#myContainer")
+            const myTbody = $("#myTbody")
+            const myTable = $('#myTable')
+
+            //ajax
+            $.ajax({
+                type: "get",
+                url: url,
+                dataType: "json",
+                success: function (res) {
+                    // console.log(res);
+                    let data = res['records']['location'];
+                    // console.log(data);
+
+                    // let content;
+                    // data.forEach((value, key) => {
+                    //     console.log("key", key);
+                    //     console.log("value.locationName", value.locationName);
+                    //     content = content + `<p>${value.locationName}</p>`
+                    // });
+                    // myContainer.append(content)
+                    
+                    let content='';
+                    data.forEach((value, key) => {
+                        // console.log("key", key);
+                        // console.log("value.locationName", value.locationName);
+                        let time12=`${value.weatherElement[0].time[0].parameter.parameterName}.${value.weatherElement[2].time[0].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`
+                        let time24=`${value.weatherElement[0].time[0].parameter.parameterName}.${value.weatherElement[2].time[1].parameter.parameterName} - ${value.weatherElement[4].time[1].parameter.parameterName}`
+                        let time36=`${value.weatherElement[0].time[0].parameter.parameterName}.${value.weatherElement[2].time[2].parameter.parameterName} - ${value.weatherElement[4].time[2].parameter.parameterName}`
+
+                        content = content + `
+                        <tr>
+                            <td>${key+1}</td>
+                            <td>${value.locationName}</td>
+                            <td>${time12}</td>
+                            <td>${time24}</td>
+                            <td>${time36}</td>
+                        </tr>
+                        `
+                    });
+                    myTbody.append(content)
+                    myTable.DataTable()
+                }
+            })
+          })
+
+    </script>
+
+</body>
+
+</html>
